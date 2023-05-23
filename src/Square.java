@@ -47,7 +47,7 @@ public class Square {
 
 	public String toString() {
 		if(flagged && covered) {
-			return ANSI_CYAN + "F" + ANSI_RESET;
+			return ANSI_CYAN + "F" + ANSI_RESET + " ";
 		} else if(covered) {
 			return "■ ";
 		} else if(closeMines > 3) {
