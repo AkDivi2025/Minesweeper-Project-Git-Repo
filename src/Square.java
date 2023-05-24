@@ -44,6 +44,12 @@ public class Square {
 	public void setFlagged(boolean flagged) {
 		this.flagged = flagged;
 	}
+	public void setButton(JButton button){
+		this.button = button;
+	}
+	public JButton getButton() {
+		return button;
+	}
 
 	public String toString() {
 		if(flagged && covered) {

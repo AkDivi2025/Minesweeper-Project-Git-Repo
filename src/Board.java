@@ -1,4 +1,4 @@
-//import javax.swing.*;
+import javax.swing.*;
 import java.util.*;
 
 public class Board {
@@ -93,7 +93,10 @@ public class Board {
 
         System.out.println();
     }
-    
+    public void displayBoardSwing(){
+        
+        
+    }
     public void generateBoard(int userX,int userY){
       	Random rand = new Random();
       	while(numMines>0){
