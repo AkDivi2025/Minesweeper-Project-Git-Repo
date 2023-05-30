@@ -6,6 +6,7 @@ public class Board {
     private int rows;
     private int cols;
     private int numMines;
+    
 
     public Board(int rows, int cols) {
         grid = new Square[rows][cols];

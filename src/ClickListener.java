@@ -1,23 +1,47 @@
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+
 import java.awt.event.*;
 import java.util.*;
 public class ClickListener extends JFrame implements MouseListener {
+
+    ImageIcon flagIcon;
     JButton button;
     JButton button2;
+    JLabel label1;
+
     public ClickListener() {
+
+        label1 = new JLabel();
+
+        flagIcon = new ImageIcon("flag.png");
+        
+        label1.setIcon(flagIcon);
 
         button = new JButton();
         button.setBounds(200, 100, 100, 50);
-        button.addMouseListener(this);
+        for(int i = 0; i<200;i+=20){
+            for(int j = 0; j<200;j+=20){
+                
+            }
+        }
         button2 = new JButton();
         button2.setBounds(100,200,100,50);
         button2.addMouseListener(this);
+        this.addMouseListener(this);
         
         this.setLayout(null);
         this.setSize(100,100);
         this.setVisible(true);
         this.add(button);
         this.add(button2);
+        this.add(label1);
+        label1.setBounds(10,10,10,10);
+
     }
 
     @Override

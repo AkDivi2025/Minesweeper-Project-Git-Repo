@@ -17,7 +17,8 @@ public class Square {
 	private int closeMines;
 	private boolean covered;
 	private boolean flagged;
-    
+    //private JPictureBox img2;
+
     public Square() {
         this.closeMines = 0;
 		this.covered = true;
