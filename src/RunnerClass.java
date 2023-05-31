@@ -7,11 +7,13 @@ import java.util.Scanner;
 
 public class RunnerClass {
     public static void main(String[] args) {
+
         Scanner console = new Scanner(System.in);
         Square currentSquare;
         String userIn;
         int userX, userY;
 
+        /*
         System.out.println("Welcome to Minesweeper!");
         console.nextLine();
 
@@ -64,6 +66,10 @@ public class RunnerClass {
 
             b1.displayBoard();
         }
+        */
+        Board b1 = new Board("medium");
+
+        b1.displayBoardSwing();
 
         console.close();
         

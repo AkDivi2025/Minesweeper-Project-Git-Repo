@@ -11,17 +11,19 @@ public class Square {
 	public static final String ANSI_CYAN = "\u001B[36m";
 	public static final String ANSI_WHITE = "\u001B[37m";
 
-	JButton button;
-    JFrame frame;
-    char img;
+	private JButton button;
+    private JFrame frame;
+    private char img;
 	private int closeMines;
 	private boolean covered;
 	private boolean flagged;
-    //private JPictureBox img2;
+    private ImageIcon img2;
+	private JLabel label;
 
     public Square() {
         this.closeMines = 0;
 		this.covered = true;
+		this.img2= new ImageIcon("square.png");
 		this.flagged = false;
     	this.button = new JButton();
     	this.frame = new JFrame();
@@ -74,5 +76,20 @@ public class Square {
 	public static void main(String[] args) {
 
 	}
+	public ImageIcon getImg(){
+		return img2;
+	}
+	public void setImg(){
+		if(!covered){
+			img2 = new ImageIcon("flag.png");
+		}
+	}
+	public JLabel getLabel(){
+		return label;
+	}
+	public void setLabel(JLabel label) {
+		this.label = label;
+	}
+	
     
 }

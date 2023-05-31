@@ -16,11 +16,11 @@ public class ClickListener extends JFrame implements MouseListener {
 
     public ClickListener() {
 
-        label1 = new JLabel();
+        
 
         flagIcon = new ImageIcon("flag.png");
         
-        label1.setIcon(flagIcon);
+        label1 = new JLabel(flagIcon);
 
         button = new JButton();
         button.setBounds(200, 100, 100, 50);
@@ -36,11 +36,12 @@ public class ClickListener extends JFrame implements MouseListener {
         
         this.setLayout(null);
         this.setSize(100,100);
-        this.setVisible(true);
+        
+        label1.setBounds(100,100,100,100);
         this.add(button);
         this.add(button2);
         this.add(label1);
-        label1.setBounds(10,10,10,10);
+        this.setVisible(true);
 
     }
 

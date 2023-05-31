@@ -6,9 +6,11 @@ public class Board {
     private int rows;
     private int cols;
     private int numMines;
+    private JFrame frame;
     
 
     public Board(int rows, int cols) {
+        frame = new JFrame();
         grid = new Square[rows][cols];
         for(int i = 0; i < rows; i++) {
             for(int j = 0; j < cols; j++) {
@@ -95,9 +97,21 @@ public class Board {
         System.out.println();
     }
     public void displayBoardSwing(){
-        
-        
-    }
+        frame.setSize(rows*10,cols*10);
+        frame.setVisible(true);
+        for(int i = 0; i < grid.length; i++){
+            for(int j = 0; j< grid[0].length; j++){
+                grid[i][j].setLabel(new JLabel(grid[i][j].getImg()));
+                frame.add(grid[i][j].getLabel());
+                grid[i][j].getLabel().setBounds(i*10,j*10,10,10);
+                grid[i][j].getLabel().setVisible(true);
+                
+            } 
+                
+            }
+            
+        }
+    
     public void generateBoard(int userX,int userY){
       	Random rand = new Random();
       	while(numMines>0){
