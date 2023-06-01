@@ -10,6 +10,7 @@ import java.util.*;
 public class ClickListener extends JFrame implements MouseListener {
 
     ImageIcon flagIcon;
+    ImageIcon mineIcon;
     JButton button;
     JButton button2;
     JLabel label1;
@@ -18,7 +19,8 @@ public class ClickListener extends JFrame implements MouseListener {
 
         
 
-        flagIcon = new ImageIcon("flag.png");
+        flagIcon = new ImageIcon("gameImages\\flag.png");
+        mineIcon = new ImageIcon("gameImages\\mine.png");
         
         label1 = new JLabel(flagIcon);
 

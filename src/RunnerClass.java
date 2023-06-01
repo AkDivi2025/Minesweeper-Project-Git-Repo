@@ -68,7 +68,7 @@ public class RunnerClass {
         }
         */
         Board b1 = new Board("medium");
-
+        
         b1.displayBoardSwing();
 
         console.close();

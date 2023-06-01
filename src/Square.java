@@ -23,7 +23,7 @@ public class Square {
     public Square() {
         this.closeMines = 0;
 		this.covered = true;
-		this.img2= new ImageIcon("square.png");
+		this.img2 = new ImageIcon("gameImages\\filledSquare.png");
 		this.flagged = false;
     	this.button = new JButton();
     	this.frame = new JFrame();
@@ -79,16 +79,17 @@ public class Square {
 	public ImageIcon getImg(){
 		return img2;
 	}
-	public void setImg(){
-		if(!covered){
-			img2 = new ImageIcon("flag.png");
-		}
+	public void setImg(String location){
+		
+			img2 = new ImageIcon(location);
+		
 	}
 	public JLabel getLabel(){
 		return label;
 	}
 	public void setLabel(JLabel label) {
 		this.label = label;
+		label.setVisible(true);
 	}
 	
     

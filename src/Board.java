@@ -41,6 +41,7 @@ public class Board {
                 grid[i][j] = new Square();
             }
         }
+        frame = new JFrame();
     }
     public Square getSquare(int row, int col) {
         return grid[row][col];
@@ -97,20 +98,27 @@ public class Board {
         System.out.println();
     }
     public void displayBoardSwing(){
-        frame.setSize(rows*10,cols*10);
-        frame.setVisible(true);
+        frame.setSize(rows*25+100, cols*25+100);
+        
+        
+        frame.setTitle("Minesweeper");
         for(int i = 0; i < grid.length; i++){
             for(int j = 0; j< grid[0].length; j++){
                 grid[i][j].setLabel(new JLabel(grid[i][j].getImg()));
+                
+                grid[i][j].getLabel().setBounds(i*25+100,j*25+100,25,25);
                 frame.add(grid[i][j].getLabel());
-                grid[i][j].getLabel().setBounds(i*10,j*10,10,10);
                 grid[i][j].getLabel().setVisible(true);
                 
             } 
                 
-            }
-            
         }
+        JLabel squarething = new JLabel(new ImageIcon("gameImages\\filledSquare.png"));
+        squarething.setBounds(14*25+200,18*25+100,25,25);
+        frame.add(squarething);
+        squarething.setVisible(true);
+        frame.setVisible(true);
+    }
     
     public void generateBoard(int userX,int userY){
       	Random rand = new Random();
