@@ -13,17 +13,18 @@ public class RunnerClass {
         String userIn;
         int userX, userY;
 
-        /*
-        System.out.println("Welcome to Minesweeper!");
+        
+        /*System.out.println("Welcome to Minesweeper!");
         console.nextLine();
 
         System.out.println("type \' f\' after your move to flag a square");
         console.nextLine();
 
         System.out.println("What difficulty do you want to play:");
-        String diff = console.nextLine();
-        Board b1 = new Board(diff);
+        String diff = console.nextLine();*/
+        Board b1 = new Board("medium");
 
+        /*
         b1.displayBoard();
         System.out.println("enter your move (row,col):");
         userIn = console.nextLine();
@@ -33,11 +34,18 @@ public class RunnerClass {
         }
         userX = Integer.parseInt(userIn.substring(0, userIn.indexOf(",")));
         userY = Integer.parseInt(userIn.substring(userIn.indexOf(",")+1, userIn.indexOf(" ")));
+        */
+
+
+        b1.displayBoardSwing();
+        //SET UP CLICKLISTENER
+        userX = 0;
+        userY = 0;
         
         b1.generateBoard(userX, userY);
         b1.generateNums();
         b1.uncoverSpace(userX, userY);
-        b1.displayBoard();
+        
         
         while(true){
             System.out.println("enter your move (row,col):");
@@ -66,9 +74,8 @@ public class RunnerClass {
 
             b1.displayBoard();
         }
-        */
-        Board b1 = new Board("medium");
         
+        Board b2 = new Board("medium");
         b1.displayBoardSwing();
 
         console.close();

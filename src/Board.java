@@ -47,6 +47,8 @@ public class Board {
         return grid[row][col];
     }
     public void uncoverSpace(int row, int col) {
+        row/=25;
+        col/=25;
         if(grid[row][col].isCovered()) {
             grid[row][col].setCovered(false);
         } else {
@@ -98,7 +100,8 @@ public class Board {
         System.out.println();
     }
     public void displayBoardSwing(){
-        frame.setSize(rows*25+100, cols*25+100);
+        frame.setSize((rows)*26, (cols)*27);
+        frame.setResizable(false);
         
         
         frame.setTitle("Minesweeper");
@@ -106,7 +109,7 @@ public class Board {
             for(int j = 0; j< grid[0].length; j++){
                 grid[i][j].setLabel(new JLabel(grid[i][j].getImg()));
                 
-                grid[i][j].getLabel().setBounds(i*25+100,j*25+100,25,25);
+                grid[i][j].getLabel().setBounds(i*25,j*25,25,25);
                 frame.add(grid[i][j].getLabel());
                 grid[i][j].getLabel().setVisible(true);
                 
@@ -125,7 +128,7 @@ public class Board {
       	while(numMines>0){
         	for(int i = 0; i < rows; i++){
     			for(int j = 0; j < cols; j++){
-                    if(!((i>=userX-2&&i<=userX+2)&&(j>=userY-2&&j<=userY+2))){
+                    if(!((i>=(userX/25)-2&&i<=(userX/25)+2)&&(j>=(userY/25)-2&&j<=(userY/25)+2))){
             		    int decider = rand.nextInt(10);
             		    if(decider==0&&grid[i][j].getCloseMines()!=-1){
                 		    grid[i][j].setCloseMines(-1);
@@ -167,4 +170,5 @@ public class Board {
     public static void main(String[] args) {
         
     }
+    
 }
