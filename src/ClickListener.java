@@ -14,43 +14,20 @@ public class ClickListener extends JFrame implements MouseListener {
     JButton button;
     JButton button2;
     JLabel label1;
+    MouseEvent click;
+    int[] coords = new int[2];
 
     public ClickListener() {
-
-        
-
-        flagIcon = new ImageIcon("gameImages\\flag.png");
-        mineIcon = new ImageIcon("gameImages\\mine.png");
-        
-        label1 = new JLabel(flagIcon);
-
-        button = new JButton();
-        button.setBounds(200, 100, 100, 50);
-        for(int i = 0; i<200;i+=20){
-            for(int j = 0; j<200;j+=20){
-                
-            }
-        }
-        button2 = new JButton();
-        button2.setBounds(100,200,100,50);
-        button2.addMouseListener(this);
         this.addMouseListener(this);
-        
-        this.setLayout(null);
-        this.setSize(100,100);
-        
-        label1.setBounds(100,100,100,100);
-        this.add(button);
-        this.add(button2);
-        this.add(label1);
-        this.setVisible(true);
 
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-            System.out.println("x is " + e.getX());
-            System.out.println("y is " + e.getY());     
+        System.out.println("click");
+        coords[0] = e.getX()/25;
+        coords[1] = e.getY()/25;
+
     }
 
     @Override
@@ -75,5 +52,12 @@ public class ClickListener extends JFrame implements MouseListener {
 
     public static void main(String[] args) {
         ClickListener minesweeper = new ClickListener();
+    }
+    public int[] getCoords(){
+        return coords;
+        
+    }
+    public MouseEvent getClick(){
+        return click;
     }
 }

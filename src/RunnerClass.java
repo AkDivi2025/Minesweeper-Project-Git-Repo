@@ -14,40 +14,49 @@ public class RunnerClass {
         int userX, userY;
 
         
-        /*System.out.println("Welcome to Minesweeper!");
+        System.out.println("Welcome to Minesweeper!");
         console.nextLine();
 
         System.out.println("type \' f\' after your move to flag a square");
         console.nextLine();
 
         System.out.println("What difficulty do you want to play:");
-        String diff = console.nextLine();*/
-        Board b1 = new Board("medium");
+        String diff = console.nextLine();
+        Board b1 = new Board(diff);
 
-        /*
+        
         b1.displayBoard();
-        System.out.println("enter your move (row,col):");
+        /*System.out.println("enter your move (row,col):");
         userIn = console.nextLine();
         if(userIn.equals("stop")) {
             console.close();
             return;
         }
         userX = Integer.parseInt(userIn.substring(0, userIn.indexOf(",")));
-        userY = Integer.parseInt(userIn.substring(userIn.indexOf(",")+1, userIn.indexOf(" ")));
-        */
+        userY = Integer.parseInt(userIn.substring(userIn.indexOf(",")+1, userIn.indexOf(" ")));*/
+        
+        
 
-
+        b1.displayBoard();
         b1.displayBoardSwing();
+        
         //SET UP CLICKLISTENER
-        userX = 0;
-        userY = 0;
+        ClickListener listen = new ClickListener();
+        b1.addMouse(listen);
+        while(listen.getCoords()[0] == 0){
+            System.out.println("a");
+            
+        }
         
-        b1.generateBoard(userX, userY);
-        b1.generateNums();
-        b1.uncoverSpace(userX, userY);
+        int[] coords = listen.getCoords();
+        userX = coords[0];
+        userY = coords[1];
+        System.out.println(coords[0]+" "+coords[1]);
         
         
-        while(true){
+        
+        
+        /*while(true){
             System.out.println("enter your move (row,col):");
             userIn = console.nextLine();
             if(userIn.equals("stop")) {
@@ -73,12 +82,10 @@ public class RunnerClass {
             }
 
             b1.displayBoard();
-        }
+        }*/
         
-        Board b2 = new Board("medium");
-        b1.displayBoardSwing();
-
-        console.close();
+        
         
     }
+    
 }

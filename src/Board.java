@@ -47,8 +47,8 @@ public class Board {
         return grid[row][col];
     }
     public void uncoverSpace(int row, int col) {
-        row/=25;
-        col/=25;
+        //row/=25;
+        //col/=25;
         if(grid[row][col].isCovered()) {
             grid[row][col].setCovered(false);
         } else {
@@ -165,6 +165,9 @@ public class Board {
                 }
             }
         }
+    }
+    public void addMouse(ClickListener listen){
+        frame.addMouseListener(listen);
     }
 
     public static void main(String[] args) {
