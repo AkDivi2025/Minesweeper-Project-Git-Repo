@@ -44,15 +44,18 @@ public class RunnerClass {
         ClickListener listen = new ClickListener();
         b1.addMouse(listen);
         while(listen.getCoords()[0] == 0){
-            System.out.println("a");
-            
+            System.out.println(listen.getCoords()[0] + ", " + listen.getCoords()[1]);
         }
         
         int[] coords = listen.getCoords();
         userX = coords[0];
         userY = coords[1];
-        System.out.println(coords[0]+" "+coords[1]);
-        
+        System.out.println("a");
+        System.out.println(userX + ",,, " + userY);
+        b1.generateMines(userX,userY);
+        b1.generateNums();
+        b1.uncoverSpace(userX, userY);
+        b1.displayBoard();
         
         
         

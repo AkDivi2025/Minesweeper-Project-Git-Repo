@@ -81,31 +81,32 @@ public class Square {
 			return new ImageIcon("gameImages\\flag.png");
 		} else if(covered) {
 			return new ImageIcon("gameImages\\filledSquare.png");
-		} else if(closeMines > 7) {
+		} else if(closeMines >= 8) {
 			return new ImageIcon("gameImages\\num8Square.png");
-		} else if(closeMines > 6) {
+		} else if(closeMines >= 7) {
 			return new ImageIcon("gameImages\\num7Square.png");
-		} else if(closeMines > 5) {
+		} else if(closeMines >= 6) {
 			return new ImageIcon("gameImages\\num6Square.png");
-		} else if(closeMines > 4) {
+		} else if(closeMines >= 5) {
 			return new ImageIcon("gameImages\\num5Square.png");
-		} else if(closeMines > 3) {
+		} else if(closeMines >= 4) {
 			return new ImageIcon("gameImages\\num4Square.png");
-		} else if(closeMines > 2) {
+		} else if(closeMines >= 3) {
 			return new ImageIcon("gameImages\\num3Square.png");
-		} else if(closeMines > 1) {
+		} else if(closeMines >= 2) {
 			return new ImageIcon("gameImages\\num2Square.png");
-		} else if(closeMines > 0) {
+		} else if(closeMines >= 1) {
 			return new ImageIcon("gameImages\\num1Square.png");
-		} else if(closeMines > -1) {
+		} else if(closeMines == 0) {
 			return new ImageIcon("gameImages\\clearedSquare.png");
 		} else {
 			return new ImageIcon("gameImages\\mine.png");
 		}
 	}
-	public void setImg(String location){
+	public void setImg(ImageIcon location){
 		
-			img2 = new ImageIcon(location);
+			img2 = this.getImg();
+			this.label.setIcon(location);
 		
 	}
 	public JLabel getLabel(){
@@ -113,6 +114,7 @@ public class Square {
 	}
 	public void setLabel(JLabel label) {
 		this.label = label;
+		
 		label.setVisible(true);
 	}
 	

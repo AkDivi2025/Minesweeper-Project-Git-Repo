@@ -58,10 +58,14 @@ public class Board {
             for(int j = -1; j < 2; j++) {
                 if((row+i > -1 && row+i < rows)&&(col+j > -1 && col+j < cols)) {
                     if(grid[row+i][col+j].getCloseMines() == 0) {
+                        
                         uncoverSpace(row + i, col + j);
+                        grid[row+i][col+j].setImg(new ImageIcon("gameImages\\clearedSquare.png"));
                     } else {
+                        grid[row+i][col+j].setImg(grid[row+i][col+j].getImg());
                         grid[row+i][col+j].setCovered(false);
                     }
+
                 }
             }
         }
@@ -123,12 +127,12 @@ public class Board {
         frame.setVisible(true);
     }
     
-    public void generateBoard(int userX,int userY){
+    public void generateMines(int userX,int userY){
       	Random rand = new Random();
       	while(numMines>0){
         	for(int i = 0; i < rows; i++){
     			for(int j = 0; j < cols; j++){
-                    if(!((i>=(userX/25)-2&&i<=(userX/25)+2)&&(j>=(userY/25)-2&&j<=(userY/25)+2))){
+                    if(!((i>=(userX)-2&&i<=(userX)+2)&&(j>=(userY)-2&&j<=(userY)+2))){
             		    int decider = rand.nextInt(10);
             		    if(decider==0&&grid[i][j].getCloseMines()!=-1){
                 		    grid[i][j].setCloseMines(-1);
