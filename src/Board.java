@@ -1,16 +1,18 @@
 import javax.swing.*;
 import java.util.*;
 
-public class Board {
+public class Board  {
     private Square[][] grid;
     private int rows;
     private int cols;
     private int numMines;
     private JFrame frame;
+    private int numUncovered = 0;
     
 
     public Board(int rows, int cols) {
         frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         grid = new Square[rows][cols];
         for(int i = 0; i < rows; i++) {
             for(int j = 0; j < cols; j++) {
@@ -49,22 +51,33 @@ public class Board {
     public void uncoverSpace(int row, int col) {
         //row/=25;
         //col/=25;
+        if(grid[row][col].getCloseMines() == -1) {
+            grid[row][col].setCovered(false);
+            System.out.println("Game Over");
+        }
         if(grid[row][col].isCovered()) {
             grid[row][col].setCovered(false);
+            numUncovered++;
         } else {
+            return;
+        }
+        if(grid[row][col].getCloseMines()>0){
+            grid[row][col].setCovered(false);
+            numUncovered++;
+            grid[row][col].setImg(grid[row][col].getImg());
             return;
         }
         for(int i = -1; i < 2; i++) {
             for(int j = -1; j < 2; j++) {
                 if((row+i > -1 && row+i < rows)&&(col+j > -1 && col+j < cols)) {
                     if(grid[row+i][col+j].getCloseMines() == 0) {
-                        
                         uncoverSpace(row + i, col + j);
-                        grid[row+i][col+j].setImg(new ImageIcon("gameImages\\clearedSquare.png"));
+                        numUncovered++;
                     } else {
-                        grid[row+i][col+j].setImg(grid[row+i][col+j].getImg());
                         grid[row+i][col+j].setCovered(false);
+                        numUncovered++;
                     }
+                    grid[row+i][col+j].setImg(grid[row+i][col+j].getImg());
 
                 }
             }
@@ -177,5 +190,13 @@ public class Board {
     public static void main(String[] args) {
         
     }
-    
+    public int getUncovered(){
+        return numUncovered;
+    }
+    public int getMines(){
+        return numMines;
+    }
+    public int numSquares(){
+        return grid.length*grid[0].length;
+    }
 }

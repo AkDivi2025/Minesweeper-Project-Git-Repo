@@ -20,7 +20,7 @@ public class Square {
     private ImageIcon img2;
 	private JLabel label;
 
-    public Square() {
+    public Square()  {
         this.closeMines = 0;
 		this.covered = true;
 		this.img2 = new ImageIcon("gameImages\\filledSquare.png");

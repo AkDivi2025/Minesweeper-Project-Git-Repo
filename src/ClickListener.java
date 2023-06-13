@@ -9,13 +9,13 @@ import java.awt.event.*;
 import java.util.*;
 public class ClickListener extends JFrame implements MouseListener {
 
-    ImageIcon flagIcon;
-    ImageIcon mineIcon;
-    JButton button;
-    JButton button2;
-    JLabel label1;
-    MouseEvent click;
-    int[] coords = new int[2];
+    private ImageIcon flagIcon;
+    private ImageIcon mineIcon;
+    private JButton button;
+    private JButton button2;
+    private JLabel label1;
+    private MouseEvent click;
+    private int[] coords = {-1, -1};
 
     public ClickListener() {
         this.addMouseListener(this);
@@ -56,6 +56,10 @@ public class ClickListener extends JFrame implements MouseListener {
     public int[] getCoords(){
         return coords;
         
+    }
+    public void setCoords(int num){
+        coords[0]=num;
+        coords[1]=num;
     }
     public MouseEvent getClick(){
         return click;

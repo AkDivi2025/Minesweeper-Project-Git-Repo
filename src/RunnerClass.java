@@ -21,8 +21,8 @@ public class RunnerClass {
         console.nextLine();
 
         System.out.println("What difficulty do you want to play:");
-        String diff = console.nextLine();
-        Board b1 = new Board(diff);
+        //String diff = console.nextLine();
+        Board b1 = new Board("medium");
 
         
         b1.displayBoard();
@@ -43,7 +43,8 @@ public class RunnerClass {
         //SET UP CLICKLISTENER
         ClickListener listen = new ClickListener();
         b1.addMouse(listen);
-        while(listen.getCoords()[0] == 0){
+        
+        while(listen.getCoords()[0] == -1){
             System.out.println(listen.getCoords()[0] + ", " + listen.getCoords()[1]);
         }
         
@@ -51,14 +52,29 @@ public class RunnerClass {
         userX = coords[0];
         userY = coords[1];
         System.out.println("a");
-        System.out.println(userX + ",,, " + userY);
-        b1.generateMines(userX,userY);
+        System.out.println(userX + ",,, " + (userY-1));
+        b1.generateMines(userX,userY-1);
         b1.generateNums();
-        b1.uncoverSpace(userX, userY);
+        b1.uncoverSpace(userX, userY-1);
         b1.displayBoard();
+        listen.setCoords(-1);
+        while(true) {
+            while(listen.getCoords()[0] == -1){
+                System.out.print("");
+            }
+            coords = listen.getCoords();
+            userX = coords[0];
+ 
+            userY = coords[1];
+            System.out.println("at");
+            System.out.println(userX + "," + (userY-1));
+            System.out.println();
+            b1.uncoverSpace(userX, userY-1);
+            listen.setCoords(-1);
+        }
         
         
-        
+
         /*while(true){
             System.out.println("enter your move (row,col):");
             userIn = console.nextLine();
