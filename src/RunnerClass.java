@@ -64,12 +64,21 @@ public class RunnerClass {
             }
             coords = listen.getCoords();
             userX = coords[0];
- 
             userY = coords[1];
             System.out.println("at");
             System.out.println(userX + "," + (userY-1));
             System.out.println();
-            b1.uncoverSpace(userX, userY-1);
+            if(userX >= b1.getGrid().length) {
+                System.out.println("X is out of bounds");
+            }else if(userY >= b1.getGrid()[0].length) {
+                System.out.println("Y is out of bounds");
+            }else {
+                b1.uncoverSpace(userX, userY-1);
+                if(b1.getSquare(userX, userY-1).getCloseMines() == -1) {
+                    System.out.println("Game Over");
+                    return;
+                }
+            }
             listen.setCoords(-1);
         }
         

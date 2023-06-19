@@ -1,0 +1,84 @@
+import java swing
+
+create Square class:
+    instance variables:
+        Jbutton button
+        JFrame frame
+        char img
+        int closeMines
+        boolean covered
+        boolean flagged
+        ImageIcon img2
+        JLabel label
+    
+    class constructor:
+        set closeMines = 0
+        set covered = true
+        set img2 = new ImageIcon filledSquare.png
+        set flagged = false
+        set button = new JButton
+        set frame = new JFrame
+
+    create method getCloseMines():
+        return value of closeMines
+    
+    create method setCloseMines(int closeMines):
+        set value of this.closeMines to closeMines
+    
+    create method isCovered()
+        return value of covered
+    
+    create method setCovered(boolean covered)
+        set value of this.covered to covered
+    
+    create method isFlagged():
+        return value of flagged
+    
+    create method setFlagged(boolean flagged):
+        set value of this.flagged to flagged
+    
+    create method getButton():
+        return value of button
+
+    create method setButton():
+        set value of this.button to button
+    
+    create method getImg():
+		if(flagged && covered) 
+			return ImageIcon flag.png
+		else if(covered)
+			return ImageIcon filledSquare.png
+		else if(closeMines >= 8)
+			return ImageIcon num8Square.png
+		else if(closeMines >= 7)
+			return ImageIcon num7Square.png
+		else if(closeMines >= 6)
+			return ImageIcon num6Square.png
+		else if(closeMines >= 5)
+			return ImageIcon num5Square.png
+		else if(closeMines >= 4)
+			return ImageIcon num4Square.png
+		else if(closeMines >= 3)
+			return ImageIcon num3Square.png
+		else if(closeMines >= 2)
+			return ImageIcon num2Square.png
+		else if(closeMines >= 1)
+			return ImageIcon num1Square.png
+		else if(closeMines == 0)
+			return ImageIcon clearedSquare.png
+		else
+			return ImageIcon mine.png
+    
+    create method setImg(ImageIcon image):
+        set the Icon of the JLabel label to the value of image
+    
+    create method getLabel():
+        returns the value of label
+
+    create method setLabel(JLabel label):
+        set the value of this.label to label
+        set label to visible
+
+
+    
+        

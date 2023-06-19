@@ -48,12 +48,15 @@ public class Board  {
     public Square getSquare(int row, int col) {
         return grid[row][col];
     }
+    public Square[][] getGrid() {
+        return grid;
+    }
     public void uncoverSpace(int row, int col) {
         //row/=25;
         //col/=25;
         if(grid[row][col].getCloseMines() == -1) {
             grid[row][col].setCovered(false);
-            System.out.println("Game Over");
+            grid[row][col].setImg(grid[row][col].getImg());
         }
         if(grid[row][col].isCovered()) {
             grid[row][col].setCovered(false);

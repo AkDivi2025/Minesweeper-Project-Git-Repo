@@ -103,10 +103,10 @@ public class Square {
 			return new ImageIcon("gameImages\\mine.png");
 		}
 	}
-	public void setImg(ImageIcon location){
+	public void setImg(ImageIcon image){
 		
 			img2 = this.getImg();
-			this.label.setIcon(location);
+			this.label.setIcon(image);
 		
 	}
 	public JLabel getLabel(){
