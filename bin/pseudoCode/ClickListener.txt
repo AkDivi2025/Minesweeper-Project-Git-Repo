@@ -1,0 +1,22 @@
+import swing
+  Create ClickListener class extends JFrame implements MouseListener
+   private ImageIcon flagIcon;
+    private ImageIcon mineIcon;
+    private JButton button;
+    private JButton button2;
+    private JLabel label1;
+    private MouseEvent click;
+    private int[] coords = {-1, -1};
+Override mouseClicked
+set coords to the x and y coords of the click
+ClickListener(){
+  add this mouseListener to this
+}
+setCoords(num){
+  set both values of coords to num
+}
+getCoords(){
+  return coords
+}
+  
+  
