@@ -1,0 +1,69 @@
+import java swing
+  Create Board Class
+    instance variables: 
+    Square[][] grid
+    int rows 
+    int cols
+    int numMines
+    JFrame frame
+    set int numUncovered = 0
+  Board(int rows, int cols){
+    set frame to a new JFrame
+    Set exit behaviour for frame
+    initialize grid with the instance variables for the size
+    Go through every value of grid and assign a new Square object to each
+    Set rows and cols to the instance variables
+    Set numMines to 40
+  }
+  Board(String difficulty){
+    if the difficulty is easy, set rows to 8, cols to 10, and mines to 15
+    if the difficulty is medium, set rows to 14, cols to 18, and mines to 40
+    if the difficulty is hard, set rows to 20, cols to 30, and mines to 70
+    initialize Square according to rows and cols
+    initialize JFrame
+  }
+Square getSquare(int rows, int cols){
+  return Square at the specified row and col
+}
+Square[][] getGrid(){
+  return grid
+}
+uncoverSpace(int row, int col){
+  If there are no mines within 8 squares, uncover the square 
+  If the square is covered, uncover the square and add 1 to numUncovered, if not, return
+  If there is a mine within 8 spaces, uncover and add 1 to numUncovered, if not, return
+  Go through the adjacent 8 squares and recursively call uncoverSpace if those squares do not have a number or a mine
+}
+displayBoard(){
+  Print out numbers corresponding to columns
+  Print out numbers corresponding to rows, then print out the row characters for the row
+}
+displayBoardSwing(){
+  set frame size to rows*27, cols*26
+  set frame to be unresizable
+  set the frame's title to minesweeper
+  Go through Square, creating an image label 25 by 25 pixels at each location on the frame for each value
+  set frame to visible
+generateMines(int row, int col){
+  Go through each square and set 10% of them to mines
+  If the specified square is within a row or column of the specified square, do not place a mine there
+  If not all mines have been placed, repeat 
+}
+generateNums(){
+  create new array with +2 rows and +2 cols
+  Go through for each square and determine how many mines are in the adjacent 8 squares
+  Set that value to the Squares numMines variable
+}
+addMouseListener(Clicklistener listen){
+  add listen to frame
+}
+int getUncovered(){
+  return numUncovered;
+}
+int getMines(){
+  return numMines
+}
+int numSquares()[
+  return rows of Square * cols of Square
+}
+}
